@@ -1,5 +1,330 @@
 @import "tailwindcss";
 
+/* Enable dark mode with proper selector */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Dark mode can be overridden by a class */
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(31, 41, 55); /* text-gray-800 equivalent */
+  background-color: rgb(249, 250, 251); /* bg-gray-50 equivalent */
+}
+
+html.dark body {
+  color: rgb(229, 231, 235) !important; /* text-gray-200 equivalent */
+  background-color: rgb(17, 24, 39) !important; /* bg-gray-900 equivalent */
+}
+
+/* More aggressive dark mode overrides */
+html.dark * {
+  border-color: rgb(55, 65, 81) !important; /* border-gray-700 equivalent */
+}
+
+/* Navbar specific overrides */
+html.dark nav.bg-white\/80 {
+  background-color: rgba(17, 24, 39, 0.9) !important; /* bg-gray-900/90 equivalent */
+}
+
+html.dark .text-blue-600 {
+  color: rgb(96, 165, 250) !important; /* text-blue-400 equivalent */
+}
+
+/* Background classes */
+html.dark .bg-white,
+html.dark .bg-white\/80 {
+  background-color: rgb(31, 41, 55) !important; /* bg-gray-800 equivalent */
+}
+
+html.dark .bg-gray-50,
+html.dark .bg-gray-100 {
+  background-color: rgb(17, 24, 39) !important; /* bg-gray-900 equivalent */
+}
+
+/* Text classes */
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark .text-black {
+  color: rgb(249, 250, 251) !important; /* text-gray-50 equivalent */
+}
+
+html.dark .text-gray-700,
+html.dark .text-gray-600 {
+  color: rgb(209, 213, 219) !important; /* text-gray-300 equivalent */
+}
+
+html.dark .text-gray-500,
+html.dark .text-gray-400 {
+  color: rgb(156, 163, 175) !important; /* text-gray-400 equivalent */
+}
+
+/* Border classes */
+html.dark .border-gray-200,
+html.dark .border-gray-300 {
+  border-color: rgb(55, 65, 81) !important; /* border-gray-700 equivalent */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(243, 244, 246); /* bg-gray-100 equivalent */
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: rgb(31, 41, 55); /* bg-gray-800 equivalent */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(59, 130, 246); /* bg-blue-500 equivalent */
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgb(37, 99, 235); /* bg-blue-600 equivalent */
+  border-radius: 9999px;
+}
+
+/* Typography for prose content */
+.prose {
+  max-width: none;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: rgb(17, 24, 39); /* text-gray-900 equivalent */
+}
+
+.dark .prose strong {
+  color: white;
+}
+
+.prose a {
+  color: rgb(37, 99, 235); /* text-blue-600 equivalent */
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.dark .prose a {
+  color: rgb(96, 165, 250); /* text-blue-400 equivalent */
+}
+
+.prose blockquote {
+  border-left-width: 4px;
+  border-color: rgb(59, 130, 246); /* border-blue-500 equivalent */
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+.prose code {
+  padding: 0.125rem 0.25rem;
+  background-color: rgb(243, 244, 246); /* bg-gray-100 equivalent */
+  border-radius: 0.25rem;
+  color: rgb(31, 41, 55); /* text-gray-800 equivalent */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+}
+
+.dark .prose code {
+  background-color: rgb(31, 41, 55); /* bg-gray-800 equivalent */
+  color: rgb(229, 231, 235); /* text-gray-200 equivalent */
+}
+
+.prose pre {
+  background-color: rgb(31, 41, 55); /* bg-gray-800 equivalent */
+  color: rgb(229, 231, 235); /* text-gray-200 equivalent */
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Section transitions */
+section {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.btn-primary {
+  background-color: rgb(37, 99, 235); /* bg-blue-600 equivalent */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: rgb(29, 78, 216); /* bg-blue-700 equivalent */
+}
+
+.btn-secondary {
+  background-color: rgb(229, 231, 235); /* bg-gray-200 equivalent */
+  color: rgb(31, 41, 55); /* text-gray-800 equivalent */
+}
+
+.btn-secondary:hover {
+  background-color: rgb(209, 213, 219); /* bg-gray-300 equivalent */
+}
+
+.dark .btn-secondary {
+  background-color: rgb(55, 65, 81); /* bg-gray-700 equivalent */
+  color: rgb(229, 231, 235); /* text-gray-200 equivalent */
+}
+
+.dark .btn-secondary:hover {
+  background-color: rgb(75, 85, 99); /* bg-gray-600 equivalent */
+}
+
+.btn-outline {
+  border-width: 1px;
+  border-color: rgb(37, 99, 235); /* border-blue-600 equivalent */
+  color: rgb(37, 99, 235); /* text-blue-600 equivalent */
+}
+
+.btn-outline:hover {
+  background-color: rgb(239, 246, 255); /* bg-blue-50 equivalent */
+}
+
+.dark .btn-outline {
+  border-color: rgb(96, 165, 250); /* border-blue-400 equivalent */
+  color: rgb(96, 165, 250); /* text-blue-400 equivalent */
+}
+
+.dark .btn-outline:hover {
+  background-color: rgba(30, 64, 175, 0.3); /* bg-blue-900/30 equivalent */
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.dark .card {
+  background-color: rgb(31, 41, 55); /* bg-gray-800 equivalent */
+}
+
+.card-header {
+  padding: 1rem;
+  border-bottom-width: 1px;
+  border-color: rgb(229, 231, 235); /* border-gray-200 equivalent */
+}
+
+.dark .card-header {
+  border-color: rgb(55, 65, 81); /* border-gray-700 equivalent */
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-footer {
+  padding: 1rem;
+  border-top-width: 1px;
+  border-color: rgb(229, 231, 235); /* border-gray-200 equivalent */
+}
+
+.dark .card-footer {
+  border-color: rgb(55, 65, 81); /* border-gray-700 equivalent */
+}
+
+/* Form elements */
+.form-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-width: 1px;
+  border-color: rgb(209, 213, 219); /* border-gray-300 equivalent */
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background-color: white;
+  color: rgb(17, 24, 39); /* text-gray-900 equivalent */
+}
+
+.form-input:focus {
+  outline: none;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-color: rgb(59, 130, 246, 0.5); /* ring-blue-500 equivalent */
+  border-color: rgb(59, 130, 246); /* border-blue-500 equivalent */
+}
+
+.dark .form-input {
+  border-color: rgb(55, 65, 81); /* border-gray-700 equivalent */
+  background-color: rgb(31, 41, 55); /* bg-gray-800 equivalent */
+  color: rgb(243, 244, 246); /* text-gray-100 equivalent */
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(55, 65, 81); /* text-gray-700 equivalent */
+  margin-bottom: 0.25rem;
+}
+
+.dark .form-label {
+  color: rgb(209, 213, 219); /* text-gray-300 equivalent */
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 2s infinite;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }

@@ -2,6 +2,10 @@
 
 A modern web application for visualizing and simulating operating system concepts and algorithms. Built with React and Vite, this project aims to provide an interactive learning experience for understanding complex OS concepts.
 
+## 🌐 Live Demo
+
+Visit the live application: [OS Visualization Project](https://os-orcin-chi.vercel.app/)
+
 ## 🚀 Features
 
 - Interactive OS concept visualizations

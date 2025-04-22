@@ -11,7 +11,13 @@ export const simulationStructure = {
         component: Simulations.BootingSimulation,
         title: 'Overview',
         description: 'Introduction to the system booting process and its stages'
-      }
+      },
+      resource_monitor: {
+        component: Simulations.ResourceMonitor,
+        title: 'Resource Monitor',
+        description: 'Monitor system resources and performance metrics in real-time',
+        topics: ['Operating Systems', 'Performance Monitoring', 'Resource Management']
+        }
     }
   },
   system_calls: {
@@ -276,7 +282,8 @@ export const simulationStructure = {
         description: 'Interactive simulation of hierarchical file system organization'
       }
     }
-  }
+  },
+  
 };
 
 export const getSimulation = (simulationId, subSimulationId) => {

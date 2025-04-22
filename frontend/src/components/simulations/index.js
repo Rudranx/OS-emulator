@@ -62,6 +62,7 @@ export { default as DiskSchedulingMain } from '../DiskScheduling/Disk_Scheduling
 
 // Booting Simulations
 export { default as BootingSimulation } from '../Booting/Booting';
+export { default as ResourceMonitor } from '../Booting/ResourceMonitor';
 
 // RTOS Simulations
 export { default as RTOSSimulation } from '../RTOS/RTOSSimulation';
